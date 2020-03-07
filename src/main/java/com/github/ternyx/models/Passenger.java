@@ -34,6 +34,10 @@ public class Passenger extends Person {
         this.extraNeeds = Objects.requireNonNull(extraNeeds);
     }
 
+    public void generateExtraNeeds() {
+
+    }
+
     @Override
     public String toString() {
         return "Passenger [extraNeeds=" + extraNeeds + ", isAdult=" + isAdult + "]";

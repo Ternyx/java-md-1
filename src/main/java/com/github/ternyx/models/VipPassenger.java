@@ -34,8 +34,9 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
         this.loungeCardNr = Objects.requireNonNull(loungeCardNr);
     }
 
-    private void generateExtraNeeds() {
-        this.setExtraNeeds(this.getExtraNeeds() + " VIP");
+    @Override
+    public void generateExtraNeeds() {
+        this.setExtraNeeds("VIP");
     }
 
     @Override
