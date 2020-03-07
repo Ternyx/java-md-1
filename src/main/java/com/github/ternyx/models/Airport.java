@@ -3,6 +3,7 @@ package com.github.ternyx.models;
 import java.util.Objects;
 import com.github.ternyx.enums.AirportName;
 import com.github.ternyx.ifaces.IdNumberGenerator;
+import com.github.ternyx.utils.RandomNumber;
 
 /**
  * Airport
@@ -41,7 +42,7 @@ public class Airport implements IdNumberGenerator {
     @Override
     public void generateNr() {
         this.airportNr = this.name.toString().substring(0, 4) 
-            + String.valueOf((int)(Math.random() * (100 - 10 + 1)) + 10);
+            + String.valueOf(RandomNumber.randInt(10, 100));
     }
 
     private int validateCapacity(int capacity) {
