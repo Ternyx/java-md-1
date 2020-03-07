@@ -11,9 +11,9 @@ public class Passenger extends Person {
     private boolean isAdult;
     private String extraNeeds;
 
-    public Passenger(String name, String surname, IdenType idenType, Nationality nationality,
+    public Passenger(String name, String surname, Nationality nationality, IdenType idenType,
             String idenNr, boolean isAdult, String extraNeeds) {
-        super(name, surname, idenType, nationality, idenNr);
+        super(name, surname, nationality, idenType, idenNr);
         this.isAdult = isAdult;
         this.extraNeeds = Objects.requireNonNull(extraNeeds);
     }

@@ -13,9 +13,9 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
     private int vipNr;
     private String loungeCardNr;
 
-    public VipPassenger(String name, String surname, IdenType idenType, Nationality nationality,
+    public VipPassenger(String name, String surname, Nationality nationality, IdenType idenType, 
             String idenNr, boolean isAdult, String extraNeeds, String loungeCardNr) {
-        super(name, surname, idenType, nationality, idenNr, isAdult, extraNeeds);
+        super(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds);
 
         generateNr();
         generateExtraNeeds();

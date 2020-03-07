@@ -15,12 +15,12 @@ public class Person {
     private Nationality nationality;
     private String idenNr;
 
-    public Person(String name, String surname, IdenType idenType, Nationality nationality,
+    public Person(String name, String surname, Nationality nationality, IdenType idenType,
             String idenNr) {
         this.name = Names.verifyName(name);
         this.surname = Names.verifySurname(surname);
-        this.idenType = Objects.requireNonNull(idenType);
         this.nationality = Objects.requireNonNull(nationality);
+        this.idenType = Objects.requireNonNull(idenType);
         this.idenNr = Objects.requireNonNull(idenNr);
     }
 

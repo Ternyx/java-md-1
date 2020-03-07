@@ -107,7 +107,7 @@ public class Flight implements IdNumberGenerator {
     @Override
     public String toString() {
         return "Flight [airportFrom=" + airportFrom + ", airportTo=" + airportTo
-                + ", allPassengers=" + allPassengers + ", dateAndTime=" + dateAndTime
-                + ", duration=" + duration + ", flightNr=" + flightNr + "]";
+            + ", allPassengers=" + allPassengers + ", dateAndTime=" + dateAndTime
+            + ", duration=" + duration + ", flightNr=" + flightNr + "]";
     }
 }
