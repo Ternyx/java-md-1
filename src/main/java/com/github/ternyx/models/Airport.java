@@ -12,6 +12,7 @@ public class Airport implements IdNumberGenerator {
     private AirportName name;
     private int capacity;
     private String airportNr;
+    private static int flightNr = 0;
 
     public Airport(AirportName name, int capacity) {
         this.name = Objects.requireNonNull(name);
@@ -43,6 +44,10 @@ public class Airport implements IdNumberGenerator {
     public void generateNr() {
         this.airportNr = this.name.toString().substring(0, 4) 
             + String.valueOf(RandomNumber.randInt(10, 100));
+    }
+
+    public int generateFlightNr() {
+        return flightNr++;
     }
 
     private int validateCapacity(int capacity) {

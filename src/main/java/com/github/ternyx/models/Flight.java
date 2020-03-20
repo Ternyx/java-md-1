@@ -13,7 +13,6 @@ public class Flight implements IdNumberGenerator {
     private Airport airportTo;
 
     private int flightNr;
-    private static int flightNrCounter = 0;
 
     private Date dateAndTime;
     private byte duration;
@@ -24,6 +23,7 @@ public class Flight implements IdNumberGenerator {
         this.airportTo = Objects.requireNonNull(airportTo);
         this.dateAndTime = Objects.requireNonNull(dateAndTime);
         this.duration = validateDuration(duration);
+        generateNr();
     }
 
 
@@ -90,12 +90,19 @@ public class Flight implements IdNumberGenerator {
         return true;
     }
 
-    @Override
-    public void generateNr() {
-        this.flightNr = flightNrCounter;
-        ++flightNrCounter;
+    public boolean addNewBoardingPass(BoardingPass boardingPass) {
+        if (boardingPass == null) {
+            return false;
+        } 
+
+        allPassengers.add(boardingPass);
+        return true;
     }
 
+    @Override
+    public void generateNr() {
+        this.flightNr = this.airportFrom.generateFlightNr();
+    }
 
     private static byte validateDuration(byte duration) {
         if (duration < 0)
