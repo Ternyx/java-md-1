@@ -44,7 +44,8 @@ public class Names {
             if (!Character.isLetter(charArr[i])) {
                 return false;
             } 
-            if (i == 0 && Character.isLowerCase(charArr[i]) || Character.isUpperCase(charArr[i])) {
+            if (i == 0 && Character.isLowerCase(charArr[i]) 
+                    || i != 0 && Character.isUpperCase(charArr[i])) {
                 return false;
             }
         }
