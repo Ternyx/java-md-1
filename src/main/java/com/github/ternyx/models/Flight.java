@@ -21,7 +21,7 @@ public class Flight implements IdNumberGenerator {
     public Flight(Airport airportFrom, Airport airportTo, Date dateAndTime, byte duration) {
         this.airportFrom = Objects.requireNonNull(airportFrom);
         this.airportTo = Objects.requireNonNull(airportTo);
-        this.dateAndTime = Objects.requireNonNull(dateAndTime);
+        this.dateAndTime = validateDateAndTime(dateAndTime);
         this.duration = validateDuration(duration);
         generateNr();
     }
@@ -58,7 +58,7 @@ public class Flight implements IdNumberGenerator {
 
 
     public void setDateAndTime(Date dateAndTime) {
-        this.dateAndTime = Objects.requireNonNull(dateAndTime);
+        this.dateAndTime = validateDateAndTime(dateAndTime);
     }
 
 
@@ -102,6 +102,19 @@ public class Flight implements IdNumberGenerator {
     @Override
     public void generateNr() {
         this.flightNr = this.airportFrom.generateFlightNr();
+    }
+
+    private static Date validateDateAndTime(Date targetDate) {
+        if (targetDate == null) {
+            throw new NullPointerException("Date can't be null");
+        }
+
+        Date current = new Date();
+        if (current.compareTo(targetDate) > 0) {
+            throw new IllegalArgumentException(
+                    "Flight date must be larger or equal to current time");
+        }
+        return targetDate;
     }
 
     private static byte validateDuration(byte duration) {
