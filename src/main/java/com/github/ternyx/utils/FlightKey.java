@@ -2,6 +2,7 @@ package com.github.ternyx.utils;
 
 import java.util.Objects;
 import com.github.ternyx.enums.AirportName;
+import com.github.ternyx.models.Flight;
 
 /**
  * FlightKey
@@ -29,6 +30,12 @@ public class FlightKey {
 
     public void setFlightId(int flightId) {
         this.flightId = flightId;
+    }
+
+    public static FlightKey getFlightKey(Flight targetFlight) {
+        Objects.requireNonNull(targetFlight);
+        return new FlightKey(targetFlight.getAirportFrom().getName(),
+                targetFlight.getFlightNr());
     }
 
     @Override
