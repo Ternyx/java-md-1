@@ -21,7 +21,7 @@ public class Person {
         this.surname = Names.verifySurname(surname);
         this.nationality = Objects.requireNonNull(nationality);
         this.idenType = Objects.requireNonNull(idenType);
-        this.idenNr = Objects.requireNonNull(idenNr);
+        this.idenNr = verifyIdenNr(idenNr);
     }
 
     public String getName() {
@@ -61,7 +61,16 @@ public class Person {
     }
 
     public void setIdenNr(String idenNr) {
-        this.idenNr = Objects.requireNonNull(idenNr);
+        this.idenNr = verifyIdenNr(idenNr);
+    }
+
+    private static String verifyIdenNr(String idenNr) {
+        if (idenNr == null) {
+            throw new NullPointerException("IdenNr can't be null");
+        } else if (idenNr.isBlank()) {
+            throw new IllegalArgumentException("IdenNr can't be blank");
+        } 
+        return idenNr;
     }
 
     @Override
