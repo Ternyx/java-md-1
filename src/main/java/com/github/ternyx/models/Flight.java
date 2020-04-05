@@ -18,7 +18,7 @@ public class Flight implements IdNumberGenerator {
     private Date dateAndTime;
     private byte duration;
     private PriorityQueue<BoardingPass> allPassengers = new PriorityQueue<>(11, 
-            (bp1, bp2) -> bp2.getGroup() - bp1.getGroup());
+            (bp1, bp2) -> bp1.getGroup() - bp2.getGroup());
 
     public Flight(Airport airportFrom, Airport airportTo, Date dateAndTime, byte duration) {
         this.airportFrom = Objects.requireNonNull(airportFrom);
