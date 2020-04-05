@@ -18,7 +18,6 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
         super(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds);
 
         generateNr();
-        generateExtraNeeds();
         this.loungeCardNr = Objects.requireNonNull(loungeCardNr);
     }
 
