@@ -45,7 +45,7 @@ public class BoardingPass implements IdNumberGenerator {
     }
 
     private void generateGroupByPriority() {
-        if (passenger.getExtraNeeds().contains("VIP")) {
+        if (passenger instanceof VipPassenger) {
             this.group = 1;
         } else {
             this.group = (short) RandomNumber.randInt(2, 5);
@@ -53,10 +53,10 @@ public class BoardingPass implements IdNumberGenerator {
     }
 
     private void generateSeatByPriority() {
-        char row = (char) RandomNumber.randInt('a', 'f');
+        char row = (char) RandomNumber.randInt('A', 'F');
         short s;
 
-        if (passenger.getExtraNeeds().contains("VIP")) {
+        if (passenger instanceof VipPassenger) {
             s = (short) RandomNumber.randInt(1, 3);
         } else {
             s = (short) RandomNumber.randInt(4, Short.MAX_VALUE);
