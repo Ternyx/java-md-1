@@ -15,9 +15,9 @@ public class BoardingPass implements IdNumberGenerator {
 
     public BoardingPass(Passenger passenger) {
         this.passenger = Objects.requireNonNull(passenger);
-        generateNr();
         generateSeatByPriority();
         generateGroupByPriority();
+        generateNr();
     }
 
     public Passenger getPassenger() {
@@ -39,7 +39,13 @@ public class BoardingPass implements IdNumberGenerator {
     public String getNr() {
         return boardingPassNr;
     } 
-    public void generateGroupByPriority() {
+
+    public short getGroup() {
+        return group;
+    }
+
+
+    private void generateGroupByPriority() {
         if (passenger.getExtraNeeds().contains("VIP")) {
             this.group = 1;
         } else {
@@ -47,7 +53,7 @@ public class BoardingPass implements IdNumberGenerator {
         }
     }
 
-    public void generateSeatByPriority() {
+    private void generateSeatByPriority() {
         char row = (char) RandomNumber.randInt('a', 'f');
         short s;
 
@@ -68,5 +74,6 @@ public class BoardingPass implements IdNumberGenerator {
             + seat.getRow()
             + group;
     }
+
 
 }
