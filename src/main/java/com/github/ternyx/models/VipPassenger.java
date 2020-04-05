@@ -9,6 +9,7 @@ import com.github.ternyx.ifaces.IdNumberGenerator;
  * VipPassenger
  */
 public class VipPassenger extends Passenger implements IdNumberGenerator {
+    private static final String DEFAULT_NEEDS = "VIP";
     private static int vipNrCounter = 0;
     private int vipNr;
     private String loungeCardNr;
@@ -35,7 +36,7 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
 
     @Override
     public void generateExtraNeeds() {
-        this.setExtraNeeds("VIP");
+        this.setExtraNeeds(DEFAULT_NEEDS);
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.github.ternyx.enums.Nationality;
  * Passenger
  */
 public class Passenger extends Person {
+    private static final String DEFAULT_NEEDS = "no needs";
     private boolean isAdult;
     private String extraNeeds;
 
@@ -43,7 +44,7 @@ public class Passenger extends Person {
     }
 
     public void generateExtraNeeds() {
-        this.extraNeeds = "no needs";
+        this.extraNeeds = DEFAULT_NEEDS;
     }
 
     @Override
