@@ -23,6 +23,6 @@ public class AirportTest {
 
     @Test 
     public void test_Airport_ValidCapacity_ReturnsInput() {
-        assertEquals(100, new Airport(AirportName.RIGA, 100));
+        assertEquals(100, new Airport(AirportName.RIGA, 100).getCapacity());
     }
 }
