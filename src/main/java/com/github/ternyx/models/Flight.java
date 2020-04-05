@@ -1,5 +1,6 @@
 package com.github.ternyx.models;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 import java.util.PriorityQueue;
@@ -16,7 +17,8 @@ public class Flight implements IdNumberGenerator {
 
     private Date dateAndTime;
     private byte duration;
-    private PriorityQueue<BoardingPass> allPassengers = new PriorityQueue<>();
+    private PriorityQueue<BoardingPass> allPassengers = new PriorityQueue<>(11, 
+            (bp1, bp2) -> bp2.getGroup() - bp1.getGroup());
 
     public Flight(Airport airportFrom, Airport airportTo, Date dateAndTime, byte duration) {
         this.airportFrom = Objects.requireNonNull(airportFrom);
