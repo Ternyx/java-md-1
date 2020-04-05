@@ -17,7 +17,8 @@ public class PassengerTest {
     private static final String idenNr = "1";
     private static final boolean isAdult = true;
     private static final String extraNeeds = "water";
-@Test
+
+    @Test
     public void test_Passenger_NullParameters_ExceptionThrown() {
         assertThrows(NullPointerException.class,
                 () -> new Passenger(null, surname, nationality, idenType, idenNr, isAdult, extraNeeds));
