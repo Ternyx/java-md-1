@@ -7,7 +7,8 @@ import com.github.ternyx.enums.Nationality;
  * Passenger
  */
 public class Passenger extends Person {
-    private static final String DEFAULT_NEEDS = "no needs";
+    public static final String DEFAULT_NEEDS = "no needs";
+
     private boolean isAdult;
     private String extraNeeds;
 
