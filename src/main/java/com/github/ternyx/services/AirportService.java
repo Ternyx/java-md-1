@@ -30,6 +30,22 @@ public class AirportService {
 
     public AirportService() { }
 
+    public Map<String, Passenger> getAllPassengers() {
+        return allPassengers;
+    }
+
+    public Map<String, BoardingPass> getAllBoardingPasses() {
+        return allBoardingPasses;
+    }
+
+    public Map<AirportName, Airport> getAllAirports() {
+        return allAirports;
+    }
+
+    public Map<FlightKey, Flight> getAllFlights() {
+        return allFlights;
+    }
+
     public String addNewPassenger(String name, String surname, Nationality nationality,
             IdenType idenType, String idenNr, boolean isAdult, String extraNeeds) {
         try {
