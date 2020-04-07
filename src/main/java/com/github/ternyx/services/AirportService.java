@@ -59,7 +59,7 @@ public class AirportService {
             allPassengers.put(newPassenger.getIdenNr(), newPassenger);
             return idenNr;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }
@@ -78,7 +78,7 @@ public class AirportService {
             allPassengers.put(newVipPassenger.getIdenNr(), (Passenger) newVipPassenger);
             return idenNr;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }
@@ -93,7 +93,7 @@ public class AirportService {
 
             return name;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }
@@ -117,7 +117,7 @@ public class AirportService {
 
             return boardingPassNr;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }
@@ -143,7 +143,7 @@ public class AirportService {
 
             return boardingPassNr;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }
@@ -164,7 +164,7 @@ public class AirportService {
             allFlights.put(key, newFlight);
             return key;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }
