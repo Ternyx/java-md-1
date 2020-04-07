@@ -30,19 +30,19 @@ public class AirportService {
 
     public AirportService() { }
 
-    public Map<String, Passenger> getAllPassengers() {
+    public static Map<String, Passenger> getAllPassengers() {
         return allPassengers;
     }
 
-    public Map<String, BoardingPass> getAllBoardingPasses() {
+    public static Map<String, BoardingPass> getAllBoardingPasses() {
         return allBoardingPasses;
     }
 
-    public Map<AirportName, Airport> getAllAirports() {
+    public static Map<AirportName, Airport> getAllAirports() {
         return allAirports;
     }
 
-    public Map<FlightKey, Flight> getAllFlights() {
+    public static Map<FlightKey, Flight> getAllFlights() {
         return allFlights;
     }
 
@@ -381,7 +381,7 @@ public class AirportService {
                 .map(BoardingPass::getNr)
                 // .distinct
                 .forEach(bId -> allBoardingPasses.remove(bId));
-        return false;
+        return true;
     }
 
     private boolean verifyIfPassengerInFlightDuringDate(Passenger p, Flight targetFlight) {
