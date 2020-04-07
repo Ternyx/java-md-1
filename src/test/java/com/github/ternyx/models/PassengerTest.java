@@ -2,6 +2,8 @@ package com.github.ternyx.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.Date;
+import com.github.ternyx.enums.AirportName;
 import com.github.ternyx.enums.IdenType;
 import com.github.ternyx.enums.Nationality;
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,11 @@ public class PassengerTest {
     private static final String idenNr = "1";
     private static final boolean isAdult = true;
     private static final String extraNeeds = "water";
+
+    private static final Airport airportFrom = new Airport(AirportName.RIGA, 100);
+    private static final Airport airportTo = new Airport(AirportName.TALLINN, 200);
+    private static final Date dateAndTime = new Date(2120, 4, 6);
+    private static final byte duration = (byte) 2;
 
     @Test
     public void test_Passenger_NullParameters_ExceptionThrown() {
