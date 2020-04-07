@@ -220,7 +220,7 @@ public class AirportService {
             return false;
         }
 
-        return deleteBoardingPasses(new HashSet<String>(Arrays.asList(boardingPassNr)), true);
+        return deleteBoardingPasses(new HashSet<String>(Arrays.asList(boardingPassNr)));
     }
 
     public boolean deleteFlightInAirportByNr(AirportName airportName, int flightNr) {
@@ -230,6 +230,21 @@ public class AirportService {
         }
 
         return deleteFlights(new HashSet<>(Arrays.asList(targetFlight)));
+    }
+
+    // alias for addNewBoardingPassByNr
+    public String addRegularPassengerInFlight(AirportName name, int flightNumber, String passengerId) {
+        return addNewBoardingPassByNr(name, flightNumber, passengerId);
+    }
+
+    // alias for addNewBoardingPassByNr, but only with VipPassenger instanceof check
+    
+    public String addVipPassengerInFlight(AirportName name, int flightNumber, String passengerId) {
+        Passenger targetPassenger = allPassengers.get(passengerId);
+        if (targetPassenger != null && targetPassenger instanceof VipPassenger) {
+            return addNewBoardingPassByNr(name, flightNumber, passengerId);
+        }
+        return null;
     }
 
     private void showAllPassengersHelper(AirportName airportName, int flightNr,
@@ -302,9 +317,9 @@ public class AirportService {
 
         passengerIds.forEach(pid -> allPassengers.remove(pid));
         /*
-         * allPassengers = allPassengers.entrySet().stream() .filter(x ->
-         * !passengerIds.contains(x.getKey())) .collect(Collectors.toMap(Map.Entry::getKey,
-         * Map.Entry::getValue));
+         * allPassengers = allPassengers.entrySet().stream()
+         *      .filter(x -> !passengerIds.contains(x.getKey()))
+         *      .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
          */
 
 
@@ -312,7 +327,7 @@ public class AirportService {
                 .filter(bPass -> passengerIds.contains(bPass.getPassenger().getIdenNr()))
                 .map(BoardingPass::getNr).collect(Collectors.toSet());
 
-        deleteBoardingPasses(boardingPassIdsToDelete, true);
+        deleteBoardingPasses(boardingPassIdsToDelete);
         return true;
     }
 
@@ -348,17 +363,16 @@ public class AirportService {
      * Deleting a boarding pass will result in: 1) Deletion of that boarding pass 2) Deletion of the
      * respective boarding pass in the flight boarding pass queue
      */
-    private boolean deleteBoardingPasses(Set<String> boardingPassIds, boolean checkFlight) {
+    private boolean deleteBoardingPasses(Set<String> boardingPassIds) {
         if (boardingPassIds.isEmpty()) {
             return false;
         }
 
         boardingPassIds.forEach(bPass -> allBoardingPasses.remove(bPass));
 
-        if (checkFlight) {
-            allFlights.values().stream().map(Flight::getAllPassengers)
-                    .forEach(p -> p.removeIf(bp -> boardingPassIds.contains(bp.getNr())));
-        }
+        allFlights.values().stream()
+            .map(Flight::getAllPassengers)
+            .forEach(p -> p.removeIf(bp -> boardingPassIds.contains(bp.getNr())));
 
         return true;
     }
@@ -414,6 +428,7 @@ public class AirportService {
         return false;
     }
 
+    // start/end inclusive
     private static boolean checkIfDateBetween(Date targetDate, Date leftDate, Date rightDate) {
         return leftDate.compareTo(targetDate) <= 0 && rightDate.compareTo(targetDate) >= 0;
     }
