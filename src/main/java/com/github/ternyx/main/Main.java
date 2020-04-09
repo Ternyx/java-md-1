@@ -33,9 +33,9 @@ public class Main {
         String vp3 = service.addNewVipPassenger("Amanda", "Leon", Nationality.LATVIAN, IdenType.IDCARD,
                 "6", true, "no needs", "3");
 
-        AirportName a1 = service.addNewAirport(AirportName.RIGA, 2000);
-        AirportName a2 = service.addNewAirport(AirportName.OLSO, 4000);
-        AirportName a3 = service.addNewAirport(AirportName.BARSELONA, 5000);
+        AirportName a1 = service.addNewAirport(AirportName.RIGA, 100);
+        AirportName a2 = service.addNewAirport(AirportName.OLSO, 100);
+        AirportName a3 = service.addNewAirport(AirportName.BARSELONA, 20);
 
         Calendar calendarInstance = Calendar.getInstance();
         calendarInstance.add(Calendar.MINUTE, 1);
@@ -57,7 +57,5 @@ public class Main {
         String bp7 = service.addNewBoardingPassByNr(f3.getAirportName(), f3.getFlightId(), p2);
         String bp8 = service.addNewBoardingPassByNr(f3.getAirportName(), f3.getFlightId(), vp3);
         String bp9 = service.addNewBoardingPassByNr(f3.getAirportName(), f3.getFlightId(), vp1);
-
-        service.showAllFlightsFromAirport(a1);
     }
 }

@@ -21,7 +21,7 @@ public class PassengerTest {
     private static final String extraNeeds = "water";
 
     private static final Airport airportFrom = new Airport(AirportName.RIGA, 100);
-    private static final Airport airportTo = new Airport(AirportName.TALLINN, 200);
+    private static final Airport airportTo = new Airport(AirportName.TALLINN, 100);
     private static final Date dateAndTime = new Date(2120, 4, 6);
     private static final byte duration = (byte) 2;
 

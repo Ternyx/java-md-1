@@ -163,8 +163,8 @@ public class AirportServiceTest {
 
     @Test
     public void AddNewBoardingPassByObjects_ValidParameters_ValidContainerSize() {
-        service.addNewAirport(AirportName.RIGA, 100);
-        service.addNewAirport(AirportName.OLSO, 200);
+        service.addNewAirport(AirportName.RIGA, 10);
+        service.addNewAirport(AirportName.OLSO, 20);
         FlightKey flightKey = service.addNewFlight(AirportName.RIGA, AirportName.OLSO, dateAndTime, duration);
         String passengerKey = service.addNewPassenger(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds);
 
@@ -178,10 +178,10 @@ public class AirportServiceTest {
 
     @Test
     public void AddNewBoardingPassByObjects_PassengerInMultipleFlightsDuringDate_AddsOne() {
-        AirportName airportFromName1 = service.addNewAirport(AirportName.RIGA, 100);
-        AirportName airportToName1 = service.addNewAirport(AirportName.OLSO, 100);
-        AirportName airportFromName2 = service.addNewAirport(AirportName.TALLINN, 100);
-        AirportName airportToName2 = service.addNewAirport(AirportName.BARSELONA, 100);
+        AirportName airportFromName1 = service.addNewAirport(AirportName.RIGA, 10);
+        AirportName airportToName1 = service.addNewAirport(AirportName.OLSO, 10);
+        AirportName airportFromName2 = service.addNewAirport(AirportName.TALLINN, 10);
+        AirportName airportToName2 = service.addNewAirport(AirportName.BARSELONA, 10);
         
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.HOUR, 3);
@@ -230,8 +230,8 @@ public class AirportServiceTest {
 
     @Test
     public void AddNewBoardingPassByNr_ValidParameters_ReturnsKeyAndContainerSize1() {
-        service.addNewAirport(AirportName.RIGA, 100);
-        service.addNewAirport(AirportName.OLSO, 200);
+        service.addNewAirport(AirportName.RIGA, 10);
+        service.addNewAirport(AirportName.OLSO, 20);
 
         FlightKey flightKey = service.addNewFlight(AirportName.RIGA, AirportName.OLSO, dateAndTime, duration);
         String passengerKey = service.addNewPassenger(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds);
@@ -254,8 +254,8 @@ public class AirportServiceTest {
 
     @Test
     public void addNewFlight_ValidParameters_ReturnsKeyAndContainerSize1() {
-        AirportName airportNameFrom = service.addNewAirport(AirportName.RIGA, 100);
-        AirportName airportNameTo = service.addNewAirport(AirportName.OLSO, 200);
+        AirportName airportNameFrom = service.addNewAirport(AirportName.RIGA, 10);
+        AirportName airportNameTo = service.addNewAirport(AirportName.OLSO, 20);
 
         FlightKey flightKey = service.addNewFlight(airportNameFrom, airportNameTo, dateAndTime, duration);
         assertNotNull(flightKey);
