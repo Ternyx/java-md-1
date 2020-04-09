@@ -13,6 +13,7 @@ public class Airport implements IdNumberGenerator {
     private int capacity;
     private String airportNr;
     private static int flightNr = 0;
+    private static final int MAX_CAPACITY = 100;
 
     public Airport(AirportName name, int capacity) {
         this.name = Objects.requireNonNull(name);
@@ -53,6 +54,9 @@ public class Airport implements IdNumberGenerator {
     private int validateCapacity(int capacity) {
         if (capacity < 0)
             throw new IllegalArgumentException("Capacity must be non-negative");
+
+        if (capacity > MAX_CAPACITY) 
+            throw new IllegalArgumentException("Capacity must be >= 0 && <= 100");
 
         return capacity;
     }
