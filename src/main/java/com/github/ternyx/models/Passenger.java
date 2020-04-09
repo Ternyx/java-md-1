@@ -50,6 +50,7 @@ public class Passenger extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + "Passenger [extraNeeds=" + extraNeeds + ", isAdult=" + isAdult + "]";
+        return "Passenger [extraNeeds=" + extraNeeds + ", isAdult=" + isAdult + ", INHERITED ["
+                + super.toString() + "]]";
     }
 }
