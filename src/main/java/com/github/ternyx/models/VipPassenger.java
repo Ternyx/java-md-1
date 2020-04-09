@@ -20,7 +20,7 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
         super(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds);
 
         generateNr();
-        this.loungeCardNr = Objects.requireNonNull(loungeCardNr);
+        this.loungeCardNr = validateLoungeCardNr(loungeCardNr);
     }
 
     public int getVipNr() {
@@ -32,7 +32,16 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
     }
 
     public void setLoungeCardNr(String loungeCardNr) {
-        this.loungeCardNr = Objects.requireNonNull(loungeCardNr);
+        this.loungeCardNr = validateLoungeCardNr(loungeCardNr);
+    }
+
+    private static String validateLoungeCardNr(String loungeCardNr) {
+        if (loungeCardNr == null) {
+            throw new NullPointerException("LoungeCardNr can't be null");
+        } else if (loungeCardNr.isBlank()) {
+            throw new IllegalArgumentException("LoungeCardNr can't be blank");
+        }
+        return loungeCardNr;
     }
 
     @Override
@@ -51,4 +60,5 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
         return "VipPassenger [loungeCardNr=" + loungeCardNr + ", vipNr=" + vipNr + ", INHERITED ["
                 + super.toString() + "]]";
     }
+
 }
