@@ -43,7 +43,13 @@ public class Airport implements IdNumberGenerator {
 
     @Override
     public void generateNr() {
-        this.airportNr = this.name.toString().substring(0, 4) 
+        String airportName = this.name.toString();
+        int length = airportName.length();
+        if (length > 3) {
+            length = 3;
+        }
+
+        this.airportNr = this.name.toString().substring(0, length) 
             + String.valueOf(RandomNumber.randInt(10, 100));
     }
 
