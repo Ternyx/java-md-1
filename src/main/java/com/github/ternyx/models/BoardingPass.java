@@ -12,6 +12,7 @@ public class BoardingPass implements IdNumberGenerator {
     private Seat seat;
     private String boardingPassNr;
     private short group;
+    private static final short MAX_SEAT = 100;
 
     public BoardingPass(Passenger passenger) {
         this.passenger = Objects.requireNonNull(passenger);
@@ -59,7 +60,7 @@ public class BoardingPass implements IdNumberGenerator {
         if (passenger instanceof VipPassenger) {
             s = (short) RandomNumber.randInt(1, 3);
         } else {
-            s = (short) RandomNumber.randInt(4, Short.MAX_VALUE);
+            s = (short) RandomNumber.randInt(4, MAX_SEAT);
         }
 
         this.seat = new Seat(row, s);
