@@ -45,4 +45,10 @@ public class VipPassenger extends Passenger implements IdNumberGenerator {
         this.vipNr = vipNrCounter;
         ++vipNrCounter;
     }
+
+    @Override
+    public String toString() {
+        return "VipPassenger [loungeCardNr=" + loungeCardNr + ", vipNr=" + vipNr + ", INHERITED ["
+                + super.toString() + "]]";
+    }
 }
