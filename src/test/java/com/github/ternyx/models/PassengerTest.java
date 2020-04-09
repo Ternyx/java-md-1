@@ -26,7 +26,7 @@ public class PassengerTest {
     private static final byte duration = (byte) 2;
 
     @Test
-    public void test_Passenger_NullParameters_ExceptionThrown() {
+    public void Passenger_NullParameters_ExceptionThrown() {
         assertThrows(NullPointerException.class,
                 () -> new Passenger(null, surname, nationality, idenType, idenNr, isAdult, extraNeeds));
         assertThrows(NullPointerException.class,
@@ -41,7 +41,7 @@ public class PassengerTest {
 
 
     @Test
-    public void test_Passenger_EmptyOrNullParameterExtraNeeds_GeneratesDefaultNeeds() {
+    public void Passenger_EmptyOrNullParameterExtraNeeds_GeneratesDefaultNeeds() {
         assertEquals(Passenger.DEFAULT_NEEDS,
                 new Passenger(name, surname, nationality, idenType, idenNr, isAdult, "")
                         .getExtraNeeds(),
@@ -54,7 +54,7 @@ public class PassengerTest {
     }
     
     @Test
-    public void test_Passenger_ValidNeeds_ReturnsInput() {
+    public void Passenger_ValidNeeds_ReturnsInput() {
         assertEquals(extraNeeds, new Passenger(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds).getExtraNeeds());
     }
 }

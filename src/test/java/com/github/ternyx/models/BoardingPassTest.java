@@ -20,13 +20,13 @@ public class BoardingPassTest {
     private static final String extraNeeds = "water";
 
     @Test
-    public void test_BoardingPass_NullParameters_ExceptionThrown() {
+    public void BoardingPass_NullParameters_ExceptionThrown() {
         assertThrows(NullPointerException.class,
                 () -> new Passenger(null, null, null, null, null, false, null));
     }
 
     @Test
-    public void test_BoardingPass_ValidPassenger_ReturnsInput() {
+    public void BoardingPass_ValidPassenger_ReturnsInput() {
         Passenger passenger =
                 new Passenger(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds);
         VipPassenger vipPassenger = new VipPassenger(name, surname, nationality, idenType, idenNr, isAdult,
@@ -36,7 +36,7 @@ public class BoardingPassTest {
     }
 
     @Test
-    public void test_BoardingPass_GeneratedValues_ReturnsValid() {
+    public void BoardingPass_GeneratedValues_ReturnsValid() {
         Passenger passenger =
                 new Passenger(name, surname, nationality, idenType, idenNr, isAdult, extraNeeds);
         VipPassenger vipPassenger = new VipPassenger(name, surname, nationality, idenType, idenNr,

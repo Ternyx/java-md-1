@@ -7,7 +7,6 @@ import java.util.Date;
 import com.github.ternyx.enums.AirportName;
 import com.github.ternyx.enums.IdenType;
 import com.github.ternyx.enums.Nationality;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -21,7 +20,7 @@ public class FlightTest {
     private static final byte duration = (byte) 2;
 
     @Test
-    public void test_Flight_NullParameters_ExceptionThrown() {
+    public void Flight_NullParameters_ExceptionThrown() {
         assertThrows(NullPointerException.class,
                 () -> new Flight(null, airportTo, dateAndTime, duration));
         assertThrows(NullPointerException.class,
@@ -31,25 +30,25 @@ public class FlightTest {
     }
 
     @Test 
-    void test_Flight_NegativeDuration_ExceptionThrown() {
+    public void Flight_NegativeDuration_ExceptionThrown() {
         assertThrows(IllegalArgumentException.class,
                 () -> new Flight(airportFrom, airportTo, dateAndTime, (byte) -1));
     }
 
     @Test 
-    void test_Flight_PositiveDuration_ReturnsInput() {
+    public void Flight_PositiveDuration_ReturnsInput() {
         assertEquals(1, new Flight(airportFrom, airportTo, dateAndTime, (byte)1).getDuration());
     }
 
     @Test 
-    public void test_Flight_GeneratedValues_ReturnsValid() {
+    public void Flight_GeneratedValues_ReturnsValid() {
         Flight f1 = new Flight(airportFrom, airportTo, dateAndTime, duration);
         Flight f2 = new Flight(airportFrom, airportTo, dateAndTime, duration);
         assertEquals(f1.getFlightNr() + 1, f2.getFlightNr());
     }
 
     @Test 
-    public void test_Flight_BoardingPassQueuePrecedence_ValidPrecedence() {
+    public void Flight_BoardingPassQueuePrecedence_ValidPrecedence() {
         Passenger p1 = new Passenger("Name", "Surname", Nationality.ITALIAN, IdenType.IDCARD, "1",
                 true, "");
         VipPassenger vp1 = new VipPassenger("Name", "Surname", Nationality.ITALIAN, IdenType.IDCARD,

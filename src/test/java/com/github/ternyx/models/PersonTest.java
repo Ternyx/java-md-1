@@ -17,7 +17,7 @@ public class PersonTest {
     private static final String idenNr = "1";
 
     @Test
-    public void test_Person_NullParamenters_ExceptionThrown() {
+    public void Person_NullParamenters_ExceptionThrown() {
         assertThrows(NullPointerException.class,
                 () -> new Person(null, surname, nationality, idenType, idenNr));
         assertThrows(NullPointerException.class,
@@ -31,7 +31,7 @@ public class PersonTest {
     }
 
     @Test
-    public void test_Person_BlankParameters_ExceptionThrown() {
+    public void Person_BlankParameters_ExceptionThrown() {
         assertThrows(IllegalArgumentException.class,
                 () -> new Person("", surname, nationality, idenType, idenNr));
         assertThrows(IllegalArgumentException.class,
@@ -41,7 +41,7 @@ public class PersonTest {
     }
 
     @Test
-    public void test_Person_InvalidName_ExceptionThrown() {
+    public void Person_InvalidName_ExceptionThrown() {
         assertThrows(IllegalArgumentException.class,
                 () -> new Person("adam", surname, nationality, idenType, idenNr));
         assertThrows(IllegalArgumentException.class,
@@ -66,7 +66,7 @@ public class PersonTest {
     }
 
     @Test
-    public void test_Person_InvalidSurname_ExceptionThrown() {
+    public void Person_InvalidSurname_ExceptionThrown() {
         assertThrows(IllegalArgumentException.class,
                 () -> new Person(name, "surname", nationality, idenType, idenNr));
         assertThrows(IllegalArgumentException.class,
@@ -80,7 +80,7 @@ public class PersonTest {
     }
 
     @Test 
-    public void test_Person_ValidSurname_ReturnsInput() {
+    public void Person_ValidSurname_ReturnsInput() {
         assertEquals(name, new Person(name, surname, nationality, idenType, idenNr).getName(),
                 "Name should equal " + name);
     }

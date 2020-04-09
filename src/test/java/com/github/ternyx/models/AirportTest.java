@@ -12,17 +12,17 @@ import org.junit.jupiter.api.Test;
 public class AirportTest {
 
     @Test
-    public void test_Airport_NullParameters_ExceptionThrown() {
+    public void Airport_NullParameters_ExceptionThrown() {
         assertThrows(NullPointerException.class, () -> new Airport(null, 0));
     }
 
     @Test
-    public void test_Airport_NegativeCapacity_ExceptionThrown() {
+    public void Airport_NegativeCapacity_ExceptionThrown() {
         assertThrows(IllegalArgumentException.class, () -> new Airport(AirportName.RIGA, -1));
     }
 
     @Test 
-    public void test_Airport_ValidCapacity_ReturnsInput() {
+    public void Airport_ValidCapacity_ReturnsInput() {
         assertEquals(100, new Airport(AirportName.RIGA, 100).getCapacity());
     }
 }
