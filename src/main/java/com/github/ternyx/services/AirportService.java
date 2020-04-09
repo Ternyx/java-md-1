@@ -58,7 +58,7 @@ public class AirportService {
 
             allPassengers.put(newPassenger.getIdenNr(), newPassenger);
             return idenNr;
-        } catch (Exception e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             //e.printStackTrace();
             return null;
         }
@@ -77,7 +77,7 @@ public class AirportService {
 
             allPassengers.put(newVipPassenger.getIdenNr(), (Passenger) newVipPassenger);
             return idenNr;
-        } catch (Exception e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             //e.printStackTrace();
             return null;
         }
@@ -92,7 +92,7 @@ public class AirportService {
             allAirports.put(name, newAirport);
 
             return name;
-        } catch (Exception e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             //e.printStackTrace();
             return null;
         }
@@ -116,7 +116,7 @@ public class AirportService {
             flight.addNewBoardingPass(targetBoardingPass);
 
             return boardingPassNr;
-        } catch (Exception e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             //e.printStackTrace();
             return null;
         }
@@ -142,7 +142,7 @@ public class AirportService {
             targetFlight.addNewBoardingPass(targetBoardingPass);
 
             return boardingPassNr;
-        } catch (Exception e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             //e.printStackTrace();
             return null;
         }
@@ -163,7 +163,7 @@ public class AirportService {
 
             allFlights.put(key, newFlight);
             return key;
-        } catch (Exception e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             //e.printStackTrace();
             return null;
         }
