@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -276,10 +277,10 @@ public class AirportService {
             .forEach(e -> System.out.println(e.getValue()));
     }
 
-    public void sortAllFlightsByDay() {
-        allFlights.values().stream()
+    public List<Flight> sortAllFlightsByDay() {
+        return allFlights.values().stream()
                 .sorted((f1, f2) -> f1.getDateAndTime().compareTo(f2.getDateAndTime()))
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
     }
 
     public void showAllArrivalsByTimeInAirport(AirportName airportName) {
@@ -291,10 +292,10 @@ public class AirportService {
             .forEach(System.out::println);
     }
 
-    public void sortAllAirportsByCapacity() {
-        allAirports.values().stream()
+    public List<Airport> sortAllAirportsByCapacity() {
+        return allAirports.values().stream()
             .sorted((a1, a2) -> a1.getCapacity() - a2.getCapacity())
-            .forEach(System.out::println);
+            .collect(Collectors.toList());
     }
 
     private static Map.Entry<Date, Flight> getFlightArrivalDate(Flight targetFlight) {
